@@ -1,0 +1,11 @@
+.badge-danger{
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    height:2rem;
+    top:1.5rem;
+    right:2.5rem;
+    width:2rem;
+    text-align: center;
+    margin-top:-10px;
+}

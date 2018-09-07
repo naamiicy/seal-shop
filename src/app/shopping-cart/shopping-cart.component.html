@@ -1,0 +1,64 @@
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed" [formGroup]="formGroup">
+        <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody formArrayName="cartList">   <!--*****-->
+            <tr *ngFor="let Key of cartItemsKeys; let i = index">
+                <td data-th="Product">
+                 <div class="row">
+                    <div class="col-sm-2 hidden-xs"><img src="{{ cartItems[Key].item.imageUrl }}" alt="" class="img-responsive"/></div>
+                        <div class="col-sm-10">
+                            <h4 class="nomargin">{{cartItems[Key].item.title}}</h4>
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">{{cartItems[Key].item.price | currency: 'THB': 'symbol-narrow' }}</td>
+                <td data-th="Quantity">
+                    <input type="number" class="form-control text-center" min="1" formControlName="{{i}}">
+                </td>
+                <td data-th="Subtotal" class="text-center">{{cartItems[Key].item.price * formGroup.controls.cartList.at(i).value  | currency: 'THB': 'symbol-narrow' }}</td>
+                <td class="actions text-center" data-th="">
+                <!--
+                    <button class="btn btn-info btn-sm" type="button">
+                        <i class="fa fa-refresh"></i>
+                    </button> 
+                -->            
+                    <button class="btn btn-danger btn-sm"  type="button" (click)="removeItem(key,i)">
+                        <i class="fa fa-trash-o"></i>
+                    </button>								
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center">
+                    <strong>Total</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button routerLink="/" class="btn btn-warning">
+                        <i class="fa fa-angle-left"></i> Continue Shopping
+                    </button>
+                </td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center">
+                    <strong>Total </strong>
+                    {{totalPrice | currency: 'THB': 'symbol-narrow'}}
+                </td>
+                <td>
+                    <button class="btn btn-success btn-block" [disabled]="!formGroup.valid">Checkout 
+                        <i class="fa fa-angle-right"></i>
+                    </button>
+                </td>
+           </tr>
+        </tfoot>
+    </table>
+</div>
