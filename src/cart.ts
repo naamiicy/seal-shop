@@ -11,5 +11,5 @@ export interface CartItem{
 
 export interface ItemWithAmount{
     item: Item,
-    amount: number
+    amount: number,
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { CartItem } from '../../cart';
 import { FormControl, FormArray,FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,6 +16,7 @@ export class ShoppingCartComponent implements OnInit {
   amountArrayControl: FormArray;
   formGroup: FormGroup;
   totalPrice : Number;
+  toggleCart = true;
 
   constructor(public cartService: CartService, formBuilder: FormBuilder) {      //*
     this.cartItems = cartService.getItems();
@@ -66,4 +68,5 @@ export class ShoppingCartComponent implements OnInit {
       this.amountArrayControl.removeAt(index);
       delete this.cartItems[itemId];
   }
+
 }

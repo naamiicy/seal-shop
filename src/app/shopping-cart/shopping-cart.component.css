@@ -5,3 +5,6 @@
 .ng-invalid{
     border-color: red; 
 }
+.table-bordered{
+    border-color: transparent;
+}

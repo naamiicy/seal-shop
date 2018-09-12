@@ -22,8 +22,9 @@ export class CartService {
       }else{
         this.itemList[item.id] = {
         item: item,
-        amount: 1
+        amount: 1,
       }
     }
   }
+
 }

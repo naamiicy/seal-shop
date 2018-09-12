@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
     <div class="row">
         <div class="col-md-12">
-          <nav class="navbar navbar-inverse">
+          <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
             <!--
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
@@ -13,39 +13,46 @@
                   <a class="nav navbar-brand" routerLink="/">{{Title}}</a>
                 </li>
                 <li class="nav-item">
-                  <a routerLink="/about/kannika" class="nav-link">About</a>
+                  <a routerLink="/about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                  <a routerLink="/about/contact" class="nav-link">Contact</a>
+                  <a routerLink="/contact" class="nav-link">Contact</a>
                 </li> 
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">Products
                         <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                          <a routerLink="/" [queryParams]="{category: 'รองเท้า'}">รองเท้า</a>                  
-                        </li>
-                        <li>
-                          <a routerLink="/" [queryParams]="{category: 'เสื้อ'}">เสื้อ</a>
-                        </li>
-                        <li>
-                          <a routerLink="/" [queryParams]="{category: 'กระเป๋า'}">กระเป๋า</a>
-                        </li>
-                    </ul>
+                    </a>                   
+                            <ul class="dropdown-menu">
+                                  <li>
+                                    <a routerLink="/" [queryParams]="{category: 'เสื้อ'}">เสื้อ</a>
+                                  </li>
+                                  <li>
+                                    <a routerLink="/" [queryParams]="{category: 'กางเกง'}">กางเกง</a>
+                                  </li>    
+                                  <li>
+                                    <a routerLink="/" [queryParams]="{category: 'รองเท้า'}">รองเท้า</a>                  
+                                  </li>
+                                  <li class="divider"></li>
+                                  <li>
+                                    <a routerLink="/" [queryParams]="{category: 'กระเป๋า'}">กระเป๋า</a>
+                                  </li>
+                                
+                            </ul>
                 </li> 
               </ul>
               <ul class="nav navbar-nav navbar-right">
                   <li>
-                    <a routerLink="/cart">Shop
+                    <a routerLink="/cart">
                       <span class="glyphicon glyphicon-shopping-cart" ></span>
-                      <span class="badge badge-danger"></span>          
-                  </a>
-                </li>
+                      <div>
+                        <span class="badge badge-danger">{{cartItemCount}}</span>
+                      </div>      
+                    </a>
+                  </li>
               </ul>
             </div>
           </nav>
         </div>
     </div>
-<br>
 <router-outlet></router-outlet>
+    

@@ -1,5 +1,7 @@
+<app-service></app-service>
+<div class="container" style="height: 50px;"></div>
 <div class="container">
-    <table id="cart" class="table table-hover table-condensed" [formGroup]="formGroup">
+    <table id="cart" class="table table-hover table-condensed table-bordered" [formGroup]="formGroup">
         <thead>
             <tr>
                 <th style="width:50%">Product</th>
@@ -44,9 +46,11 @@
             </tr>
             <tr>
                 <td>
-                    <button routerLink="/" class="btn btn-warning">
-                        <i class="fa fa-angle-left"></i> Continue Shopping
-                    </button>
+                    <a routerLink="/" >
+                        <button class="btn btn-warning">
+                            <i class="fa fa-angle-left"></i> Continue Shopping
+                        </button>
+                    </a>
                 </td>
                 <td colspan="2" class="hidden-xs"></td>
                 <td class="hidden-xs text-center">
@@ -54,11 +58,15 @@
                     {{totalPrice | currency: 'THB': 'symbol-narrow'}}
                 </td>
                 <td>
-                    <button class="btn btn-success btn-block" [disabled]="!formGroup.valid">Checkout 
-                        <i class="fa fa-angle-right"></i>
-                    </button>
+                    <a routerLink="/bill" >
+                        <button class="btn btn-success btn-block" [disabled]="!formGroup.valid">Checkout 
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+                    </a>    
                 </td>
            </tr>
         </tfoot>
     </table>
 </div>
+<!--<router-outlet></router-outlet>--> 
+<app-order-summary *ngIf="toggleCart"></app-order-summary>

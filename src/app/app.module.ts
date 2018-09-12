@@ -10,7 +10,10 @@ import { ProductServiceComponent } from './product-service/product-service.compo
 import { ProductComponent } from './product/product.component';     
 import { ReactiveFormsModule } from '@angular/forms';
 import { TitlePipe } from './title.pipe';
-import { BgColorDirective } from './bg-color.directive';                                    //*
+import { BgColorDirective } from './bg-color.directive';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,19 @@ import { BgColorDirective } from './bg-color.directive';                        
     ProductServiceComponent,
     ProductComponent,
     TitlePipe,
-    BgColorDirective
+    BgColorDirective,
+    OrderSummaryComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,  
     RouterModule.forRoot([
-      {path: "",component: ProductListComponent },
+      {path: "",component: ProductListComponent},
       {path: "cart", component: ShoppingCartComponent},
-      {path: "about", loadChildren: "./about/about.module#AboutModule"},
+      {path: "bill",component: OrderSummaryComponent},
+      {path: "about", component: AboutComponent},
+      {path: "contact", component: ContactComponent}
     ]),
     ReactiveFormsModule                                                      //*
   ],
