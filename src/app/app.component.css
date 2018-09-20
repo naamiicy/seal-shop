@@ -14,3 +14,13 @@
     background-color:rgb(116, 212, 250);
 }
 
+.ac :visited{
+    background-color: rgb(116, 212, 250);
+}
+
+.dropdown-toggle:active, .open .dropdown-toggle{
+    background-color: rgb(116, 212, 250);
+}
+.footer{
+    color: white;
+}

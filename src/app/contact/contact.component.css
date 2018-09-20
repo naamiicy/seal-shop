@@ -26,17 +26,35 @@ input[type=submit]:hover {
     padding: 10px;
 }
 
-/* Create two columns that float next to eachother */
-.column {
-    float: left;
-    width: 50%;
-    margin-top: 6px;
-    padding: 20px;
-}
-
 /* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
+
+.btn{
+    margin-right: 10px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border: 1px solid #42A948;                /* green */
+} 
+.ng-invalid:not(form)  {
+    border: 1px solid #d00;                 /* red */
+}
+.control-label.required :after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top:7px;
+  }
+  .invalid-feedback{
+    color: #d00;
+    font-size: 10pt;
+  }
+
+  agm-map {
+      height: 400px;
+  }

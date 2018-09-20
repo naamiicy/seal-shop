@@ -21,31 +21,20 @@ export class ShoppingCartComponent implements OnInit {
   constructor(public cartService: CartService, formBuilder: FormBuilder) {      //*
     this.cartItems = cartService.getItems();
     this.cartItemsKeys = Object.keys(this.cartItems);
- 
-    
     this.amountArrayControl = new FormArray([], Validators.required);         //ถ้ามีค่าให้แสดงค่านั้น  แต่ไม่มีค่าให้ Validators.required
     this.formGroup = new FormGroup({
       cartList: this.amountArrayControl
     });
-    // this.formGroup = formBuilder.group({
-    //     cartList: formBuilder.array([
-    //       [], Validators.required
-    //     ])
-  
-    // });
-    // this.amountArrayControl = this.formGroup.controls.cartList as FormBuilder();
-    // */
-
-
+    
     this.formGroup.valueChanges.subscribe({         //*
       next: (data) => {
         console.dir(data);
-
-        this.totalPrice = data.cartList.reduce((total, amount, index) => {   //ส่งค่าไปให้ Loop ถัดไป
-          const itemId = this.cartItemsKeys[index];                          //วนหาค่าIndex ของ Id
-          const itemInCart = this.cartItems[itemId];
-          return (amount* itemInCart.item.price) + total;                    //หาราคาจากIndex ของ Id
+          this.totalPrice = data.cartList.reduce((total, amount, index) => {   //ส่งค่าไปให้ Loop ถัดไป
+            const itemId = this.cartItemsKeys[index];                          //วนหาค่าIndex ของ Id
+            const itemInCart = this.cartItems[itemId];
+              return (amount* itemInCart.item.price) + total;                 //หาราคาจากIndex ของ Id               
         }, 0);
+       
       },
       error: (err) => {},
       complete: () => {}
@@ -57,7 +46,6 @@ export class ShoppingCartComponent implements OnInit {
           [Validators.min(1), Validators.required] 
         ));
     });
-
   }
 
   ngOnInit() {

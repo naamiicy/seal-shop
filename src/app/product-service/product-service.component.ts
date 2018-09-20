@@ -9,6 +9,7 @@ export class ProductServiceComponent implements OnInit {
 
   constructor() { }
 
+//private getx;
   ngOnInit() {
   }
 

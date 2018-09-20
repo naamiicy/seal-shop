@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../item';
-import { ProductService } from '../product.service';
+// import { ProductService } from '../product.service';
+import {ProductService} from "../product.service"
 import { CartService } from '../cart.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -13,29 +14,33 @@ export class ProductListComponent implements OnInit {
 
   @Input() ListItem: Item[]
   
-  constructor(productService: ProductService
+  constructor(private productService: ProductService
   ,private cartService: CartService
-  ,private router: ActivatedRoute ) { 
+  ,private router: ActivatedRoute ) {  
+    
+    this.productService.getAll().subscribe({
+      next: (products) => {
+        
+        this.router.queryParamMap.subscribe({     
+          next: (queryparamMap: ParamMap) => {
 
-    //this.ListItem = productService.itemList;
+            if(queryparamMap.has("category")){
+              const cetegory = queryparamMap.get("category");
+              this.ListItem = products.filter((item) => {
+                return item.cetegory == cetegory
+              });  
+            }else{
+              this.ListItem = products;
+            }
+          }
+        });
 
-    this.router.queryParamMap.subscribe({     
-      next: (queryparamMap: ParamMap) => {
-        if(queryparamMap.has("category")){
-          const cetegory = queryparamMap.get("category");
-
-          this.ListItem = productService.itemList.filter((item) => {
-            return item.cetegory == cetegory
-          });  
-        }else{
-          this.ListItem = productService.itemList;
-        }
       }
     });
-    
   }
 
-  ngOnInit() {                                //1 Time per Call
+  ngOnInit() {            
+    //1 Time per Call
     console.log("1","ngOnInit");
   }
 
