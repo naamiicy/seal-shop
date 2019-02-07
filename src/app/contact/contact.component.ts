@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
     this.ContactForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
+      email: ['', Validators.compose([Validators.required, Validators.email]) ],
     });
     
     var mapProp = ({

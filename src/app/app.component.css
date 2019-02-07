@@ -1,26 +1,25 @@
 .badge-danger{
-    background-color: red;
+    background-color: white;
+    color: rgb(238, 77, 45);
     position: absolute;
     border-radius: 50%;
     height:2rem;
     top:1.5rem;
-    right:2.5rem;
+    right:2.6rem;
     width:2rem;
     text-align: center;
     margin-top:-10px;
 }
 
-.nav > li > a:hover{
-    background-color:rgb(116, 212, 250);
-}
-
-.ac :visited{
-    background-color: rgb(116, 212, 250);
-}
-
-.dropdown-toggle:active, .open .dropdown-toggle{
-    background-color: rgb(116, 212, 250);
-}
 .footer{
+    color: white;
+}
+
+.nav>li>a:focus, .nav>li>a:hover ,.dropdown-toggle{
+    text-decoration: none;
+    background-color: transparent !important;
+}
+
+.nav>li>a, .navbar-brand{
     color: white;
 }

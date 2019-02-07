@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ProductService} from 'src/app/product.service';
-
+import { CartItem } from '../cart';
+import { CartService } from './cart.service';
 //import { ProductServiceComponent } from './product-service/product-service.component';
 
 @Component({
@@ -9,10 +10,13 @@ import {ProductService} from 'src/app/product.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  cartItems: CartItem;
+  cartItemsKeys: string[];
+
   lat: number = 13.785986;
   lng: number = 100.546391;
 
-  Title = 'Seal Shop';
+  Title = 'SHOPPING';
   ListItem = [
     { id: "1", title: "รองเท้า Adidas", cetegory: "รองเท้า",  price: 200, imageUrl:"https://s7d4.scene7.com/is/image/JCPenney/DP0803201717061777M.tif?wid=350&hei=350&op_usm=.4,.8,0,0&resmode=sharp2" },
     { id: "2", title: "เสื้อยืด",  cetegory: "เสื้อ", price: 300, imageUrl:"https://www.rushordertees.com/design/ZoomImage.php?src=2864256_f&style=g200&colorCode=00&x=240&y=300&width=880&height=880&scale=1.7&watermark=false" },
@@ -29,5 +33,9 @@ export class AppComponent {
     //const items = cartService.getItems(); 
     //this.cartItemCount = Object.keys(items).length;
   }
+
+  ngOnInit() {
+  }
+
 }
 

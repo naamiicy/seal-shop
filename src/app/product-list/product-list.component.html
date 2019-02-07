@@ -1,12 +1,13 @@
 <router-outlet></router-outlet>
+<div class="jumbotron" style="background-color: transparent;"></div>
 <app-service></app-service>
-<div class="ng container">
+<div class="container">
   <div class="row">
-    <div class="col-md-4" *ngFor="let item of ListItem">
+    <div class="col-md-3" *ngFor="let item of ListItem">
       <div class="panel-list col-md-12">
           <img class="ListItem" height="125" width="125" src="{{ item.imageUrl }}" alt="">  
           <br>
-          <h4 class="col-md-12">{{ item.title | title: 'Name' }}</h4>
+          <h5 class="col-md-12">{{ item.title | title: 'Name' }}</h5>
           <br>
           <h5 class="col-md-12">{{ item.price | currency: 'THB': 'symbol-narrow'  | title: 'Price' }} </h5>
           <br>

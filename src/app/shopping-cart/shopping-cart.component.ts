@@ -43,8 +43,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cartItemsKeys.forEach((cartItemKeys) => {
       this.amountArrayControl.push(
         new FormControl(this.cartItems[cartItemKeys].amount, 
-          [Validators.min(1), Validators.required] 
-        ));
+          [Validators.min(1), Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)] ));
     });
   }
 
